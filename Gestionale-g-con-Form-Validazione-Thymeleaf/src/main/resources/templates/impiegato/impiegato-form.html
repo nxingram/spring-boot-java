@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/components/head"></head>
+<body>
+	<div class="container">	
+		<div th:replace="/components/navbar">navbar.html</div>
+		
+<!-- th:object => permette di scrivere le "nome" senza scrivere "impiegato.nome" -->
+<!-- https://www.thymeleaf.org/doc/tutorials/2.1/thymeleafspring.html#handling-the-command-object -->
+
+		<form method="POST" th:action="@{/mvc/impiegato}" th:object="${impiegato}">
+	      <h2>Aggiungi Nuovo Impiegato</h2>
+	           
+	      <div th:if="${#fields.hasErrors()}">
+	        <span class="alert-danger">
+	        Correggere gli errori e reinviare.
+	        </span>
+	      </div>
+	      
+	      <input type="text" th:field="*{id}" hidden class="form-control"/>
+	      
+	      <label for="nome" class="form-label">Nome: </label>
+	      <input type="text" th:field="*{nome}" class="form-control"/>
+	      <span class="alert-danger"
+	            th:if="${#fields.hasErrors('nome')}" 
+	            th:errors="*{nome}">Nome Error</span>
+	      <br/>
+	      
+	      <label for="cognome" class="form-label">Cognome: </label>
+	      <input type="text" th:field="*{cognome}"  class="form-control"/>
+	      <span class="alert-danger"
+	            th:if="${#fields.hasErrors('cognome')}" 
+	            th:errors="*{cognome}">Cognome Error</span>
+	      <br/>
+	      
+	      <label for="ruolo" class="form-label">Ruolo: </label>
+	      <input type="text" th:field="*{ruolo}" class="form-control"/>
+	      <span class="alert-danger"
+	            th:if="${#fields.hasErrors('ruolo')}" 
+	            th:errors="*{ruolo}">Ruolo Error</span>
+	      <br/>
+	      
+	      <label for="rifTo" class="form-label">Riferimento: </label>
+	      <select th:field="*{rifTo}" name="rifTo"  class="form-control form-select">
+	      	<option value=""/>
+	        <option th:each="imp : ${impiegati}"
+	                th:value="${imp.id}"
+	                th:text="${imp.cognome +' '+ imp.nome}"
+	                th:selected="${impiegati.contains(imp.id)}"/>
+	      </select>
+	 
+	      <br/>
+	      
+	      <label for="stipendio" class="form-label">Stipendio: </label>
+	      <input type="text" th:field="*{stipendio}" class="form-control"/>
+	      <span class="alert-danger"
+	            th:if="${#fields.hasErrors('stipendio')}" 
+	            th:errors="*{stipendio}">Stipendio Error</span>
+	      <br/>
+	      
+	      <label for="ufficio" class="form-label">Ufficio: </label>    
+	      <select th:field="*{ufficio}" name="ufficio"  class="form-control form-select">
+	        <option th:each="uf : ${uffici}"
+	                th:value="${uf.id}"
+	                th:text="${uf.nome}"
+	           th:selected="${uffici.contains(uf.id)}"/>
+	      </select>
+	      
+	      <br/><br/>	      
+	      <input type="submit" value="Salva" class="btn btn-primary"/>
+	    </form>
+    </div>
+
+	<script th:replace="/components/footer"></script>
+</body>
+</html>

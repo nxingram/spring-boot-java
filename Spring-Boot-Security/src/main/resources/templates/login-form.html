@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/components/head"></head>
+<body>
+	<div class="container">
+		<div th:replace="/components/navbar">navbar.html</div>
+		
+		<h2 class="mb-4">Login</h2>
+		<div class="mb-4">
+			<form action="/login" method="post">
+			    
+<!-- 				messaggio errore -->
+				<div th:if="${message}" class="mb-3">
+					<span class="alert-danger">Email o password errati.</span>
+				</div>
+			    
+			    <div>
+					<label for="username" class="form-label">Email: </label> 
+					<input type="text" name="username" class="mb-1 form-control">
+			    </div>
+			    
+			    <div>
+					<label for="password" class="form-label">Password: </label> 
+					<input type="password" name="password" class="mb-1 form-control">
+			    </div>
+
+				<input type="submit" value="Ivia" class="btn btn-primary" />
+			</form>
+		</div>
+	</div>
+	<script th:replace="/components/footer"></script>
+</body>
+</html>

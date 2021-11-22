@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/components/head"></head>
+<body>
+	<div class="container">
+		<div th:replace="/components/navbar">navbar.html</div>
+		
+		<h2>MVC</h2>
+		<ul>
+			<li><a href="/mvc/impiegato/">Elenco Impiegati</a></li>
+			<li><a href="/mvc/impiegato/aggiungi">Aggiungi Impiegato</a></li>
+		</ul>
+	
+	</div>
+	<script th:replace="/components/footer"></script>
+</body>
+</html>

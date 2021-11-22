@@ -21,3 +21,21 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+## my ignores
+#Eclipse & Eclipse JDT
+*.metadata 
+*.project 
+*.classpath
+*.prefs
+#java test files -> bug
+*attach_pid*
+
+### VS Code ###
+.vscode/
+
+
+# my folders
+
+
+# my projects

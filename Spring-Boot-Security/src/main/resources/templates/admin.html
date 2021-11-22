@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/components/head"></head>
+<body>
+	<div class="container">
+		<div th:replace="/components/navbar">navbar.html</div>
+				
+<!-- 		utente loggato -->
+		<div th:if="${user != null}">
+			<div class="fw-bold">Benvenuto</div>
+			<div>Utente:<span th:text="${user.name}" class="ps-2  fw-bold"></span></div>
+			<div>Email:<span th:text="${user.username}" class="ps-2 fw-bold"></span></div>
+			<div>Ruolo:<span th:text="${user.role}" class="ps-2 fw-bold"></span></div>
+		</div>
+		
+		<div class="fw-bold mt-4">Pagina Admin</div>
+		<p>visibile solo se autenticato con ruolo admin</p>
+		
+	
+	</div>
+	<script th:replace="/components/footer"></script>
+</body>
+</html>

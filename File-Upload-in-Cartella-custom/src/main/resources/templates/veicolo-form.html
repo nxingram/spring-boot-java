@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Veicoli</title>
+</head>
+<body>
+<p>form</p>
+<form th:action="@{/mvc/veicolo/save}"
+    th:object="${veicolo}" method="post"
+    enctype="multipart/form-data"
+    >
+	
+	<label>Nome veicolo:</label>
+    <input type="text" th:field="*{name}" /><br/>
+     
+    <label>Photos: </label>
+    <input type="file" name="image" accept="image/png, image/jpeg" />
+     <br/><br/>
+    <input type="submit" value="Salva" />  
+    
+</form>
+
+</body>
+</html>

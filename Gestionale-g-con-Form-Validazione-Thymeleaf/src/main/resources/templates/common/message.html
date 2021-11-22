@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/components/head"></head>
+<body>
+	<div class="container">
+		<div th:replace="/components/navbar">navbar.html</div>
+		<h3 th:text="${message}" class="alert alert-info"></h3>
+		<script th:replace="/components/footer"></script>
+	</div>
+</body>
+</html>

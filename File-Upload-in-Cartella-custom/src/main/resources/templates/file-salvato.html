@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Veicoli</title>
+</head>
+<body>
+<h3>File salvato correttamente</h3>
+<p>Nome veicolo: <span th:text="${veicolo.name}"></span></p>
+<p>Nome file:<span th:text="${veicolo.photo}"></span></p>
+<p>Percorso file: <span th:text="${veicolo.photosImagePath}"></span> </p>
+<img th:src="@{${veicolo.photosImagePath}}" />
+</body>
+</html>

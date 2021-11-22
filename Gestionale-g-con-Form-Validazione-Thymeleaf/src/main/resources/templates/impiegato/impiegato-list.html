@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/components/head"></head>
+<body>
+	<div class="container">
+		<div th:replace="/components/navbar">navbar.html</div>
+
+		<h2>Elenco Impiegati</h2>
+		<div th:each="imp : ${impiegati}">
+			<div class="card" style="width: 400px" th:id="${imp.id}">
+				<!-- 			<img class="card-img-top" src="img_avatar1.png" alt="Card image" -->
+				<!-- 				style="width: 100%"> -->
+				<div class="card-body">
+					<h4 class="card-title" th:text="${imp.cognome} + ' ' + ${imp.nome}">cognome
+						nome</h4>
+					<p class="card-text">
+						ruolo: <span th:text="${imp.ruolo}"></span>
+					</p>
+					<p class="card-text">
+						stipendio: <span th:text="${imp.stipendio}"></span>
+					</p>
+					<p class="card-text">
+						ufficio: <span th:text="${imp.ufficio.nome}"></span>
+					</p>
+					<p class="card-text" th:if="${imp.rifTo != null}">
+						referente: <span
+							th:text="${imp.rifTo.cognome}+' '+${imp.rifTo.nome}"></span>
+					</p>
+
+					<a th:href="@{'/mvc/impiegato/modifica/' + ${imp.id}}"
+						class="btn btn-primary">Modifica</a>
+					<a th:href="@{'/mvc/impiegato/delete/' + ${imp.id}}"
+						class="btn btn-danger">Elimina</a>
+				</div>
+			</div>
+		</div>
+		<br>
+
+	</div>
+
+	<script th:replace="/components/footer"></script>
+</body>
+</html>
