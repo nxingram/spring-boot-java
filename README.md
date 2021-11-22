@@ -1,1 +1,1 @@
-# spring-boot-demos
+# spring-boot-java
