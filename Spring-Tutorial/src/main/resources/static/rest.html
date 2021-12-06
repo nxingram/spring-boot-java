@@ -11,16 +11,53 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
+<!-- 	custom css -->
+<link href="/css/style.css" rel="stylesheet">
 <title>REST</title>
 </head>
 <body>
 	<div class="container">
 		<h1>REST</h1>
-		<ul>
-		<li><a href="/api/studenti">lista studenti -> <b>href="/api/studenti"</b></a></li>
-		<li><a href="/api/studenti/1">studente id 1 -> <b>href="/api/studenti/1"</b></a></li>
-		<li><a href="/api/studenti/param?id=1">studente id 1 -> <b>href="/api/studenti/param?id=1"</b></a></li>
-		</ul>
+		<div class="row">
+			<ul class="list-unstyled">
+				<li>Get All</li>
+				<li>
+					<ul>
+						<li>Mapping: <span class="bold">/api/studenti</span></b></li>
+						<li>Method: <span class="bold">get</span></li>
+						<li><a href="/api/studenti"><span class="bold">lista
+									studenti</span></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul class="list-unstyled">
+				<li>Path Variable</li>
+				<li>
+					<ul>
+						<li>Mapping: <span class="bold">/api/studenti/1</span></b></li>
+						<li>Method: <span class="bold">get</span></li>
+						<li><a href="/api/studenti/1"><span class="bold">studente
+									id=1</span></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="row">
+			<ul class="list-unstyled">
+				<li>Request Parameter (query string)</li>
+				<li>
+					<ul>
+						<li>Mapping: <span class="bold">/api/studenti/param?id=1</span></b></li>
+						<li>Method: <span class="bold">get</span></li>
+						<li><a href="/api/studenti/1"><span class="bold">studente
+									id=1</span></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
 	</div>
 	<!-- Option 1: Bootstrap Bundle with Popper -->
 	<script

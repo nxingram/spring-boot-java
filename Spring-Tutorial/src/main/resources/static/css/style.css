@@ -1,0 +1,10 @@
+@charset "utf-8";
+.bold{
+	font-weight: bold;
+}
+.italic{
+	font-style: italic;
+}
+.bigger{
+	font-size: xx-large;
+}
