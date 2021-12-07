@@ -24,4 +24,5 @@ import com.nx.springtutorial.entity.Studente;
 public interface StudenteRepository extends JpaRepository<Studente, Integer> {
 
 	// eventuali metodi custom
+	Studente findByEmailIgnoreCase(String email);
 }

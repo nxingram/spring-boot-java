@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Bootstrap CSS -->
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
-<!-- 	custom css -->
-<link href="/css/style.css" rel="stylesheet">
-<title>REST</title>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<!-- 	custom css -->
+	<link href="/css/style.css" rel="stylesheet">
+	<title>REST</title>
 </head>
+
 <body>
 	<div class="container">
 		<h1>REST</h1>
@@ -30,20 +29,22 @@
 					</ul>
 				</li>
 			</ul>
-		</div>
+		</div><!-- row -->
+		<hr>
 		<div class="row">
 			<ul class="list-unstyled">
 				<li>Path Variable</li>
 				<li>
 					<ul>
-						<li>Mapping: <span class="bold">/api/studenti/1</span></b></li>
+						<li>Mapping: <span class="bold">/api/studenti/{id}</span></b></li>
 						<li>Method: <span class="bold">get</span></li>
 						<li><a href="/api/studenti/1"><span class="bold">studente
 									id=1</span></a></li>
 					</ul>
 				</li>
 			</ul>
-		</div>
+		</div><!-- row -->
+		<hr>
 		<div class="row">
 			<ul class="list-unstyled">
 				<li>Request Parameter (query string)</li>
@@ -51,18 +52,116 @@
 					<ul>
 						<li>Mapping: <span class="bold">/api/studenti/param?id=1</span></b></li>
 						<li>Method: <span class="bold">get</span></li>
-						<li><a href="/api/studenti/1"><span class="bold">studente
+						<li><a href="/api/studenti/param?id=1"><span class="bold">studente
 									id=1</span></a></li>
 					</ul>
 				</li>
 			</ul>
-		</div>
+		</div><!-- row -->
+		<hr>
+		<div class="row">
+			<div class="col">
+				<ul class="list-unstyled">
+					<li>Javascript Fetch Get (leggi)</li>
+					<li>
+						<ul>
+							<li>Mapping: <span class="bold">/api/studenti/{id}</span></b></li>
+							<li>Method: <span class="bold">get</span></li>							
+							<li><input type="number" id="getnumber"  placeholder="0"></li>
+							<li>
+								<button onclick="getOne()" type="button"
+									class="btn btn-outline-primary btn-sm">Esegui</button>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col">
+				<span id="status-getone"></span>
+				<ul id="getone" class="list-unstyled"></ul>
+			</div>
+		</div><!-- row -->
+		<hr>
+		<div class="row">
+			<div class="col">
+				<ul class="list-unstyled">
+					<li>Javascript Fetch Post (crea)</li>
+					<li>
+						<ul>
+							<li>Mapping: <span class="bold">/api/studenti</span></b></li>
+							<li>Method: <span class="bold">post</span></li>							
+							<li><input type="text" id="post-nome" placeholder="nome"></li>							
+							<li><input type="text" id="post-cognome" placeholder="cognome"></li>
+							<li><input type="text" id="post-email"  placeholder="email"></li>
+							<li>
+								<button onclick="addOne()" type="button"
+									class="btn btn-outline-primary btn-sm">Esegui</button>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col">
+				<span id="status-addone"></span>
+				<ul id="addone" class="list-unstyled"></ul>
+			</div>
+		</div><!-- row -->
+		<hr>
+		<div class="row">
+			<div class="col">
+				<ul class="list-unstyled">
+					<li>Javascript Fetch Delete (cancella)</li>
+					<li>
+						<ul>
+							<li>Mapping: <span class="bold">/api/studenti/{id}</span></b></li>
+							<li>Method: <span class="bold">delete</span></li>
+							<li><input type="number" id="delnumber"  placeholder="0"></li>
+							<li>
+								<button onclick="delOne()" type="button"
+									class="btn btn-outline-primary btn-sm">Esegui</button>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col">
+				<span id="status-delone"></span>
+			</div>
+		</div><!-- row -->
+		<hr>
+		<div class="row">
+			<div class="col">
+				<ul class="list-unstyled">
+					<li>Javascript Fetch Put (aggiorna)</li>
+					<li>
+						<ul>
+							<li>Mapping: <span class="bold">/api/studenti</span></b></li>
+							<li>Method: <span class="bold">put</span></li>							
+							<li><input type="number" id="put-id"  placeholder="0"></li>							
+							<li><input type="text" id="put-nome" placeholder="nome"></li>							
+							<li><input type="text" id="put-cognome" placeholder="cognome"></li>
+							<li><input type="text" id="put-email"  placeholder="email"></li>
+							<li>
+								<button onclick="putOne()" type="button"
+									class="btn btn-outline-primary btn-sm">Esegui</button>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col">
+				<span id="status-putone"></span>
+				<ul id="putone" class="list-unstyled"></ul>
+			</div>
+		</div><!-- row -->
+		
+	</div><!-- container -->
 
-	</div>
 	<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
+	<script src="/js/rest.js"></script>
 </body>
+
 </html>

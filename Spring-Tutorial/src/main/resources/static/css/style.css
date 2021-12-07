@@ -8,3 +8,9 @@
 .bigger{
 	font-size: xx-large;
 }
+.error{
+	color: red;
+}
+.success{
+	color: blue;
+}
