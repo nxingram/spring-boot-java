@@ -90,12 +90,14 @@ public class StudenteCtrl {
 	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> delOne(@PathVariable int id){	
+		// verifico che l'id da cancellare sia effettivamente su db
 		Studente studID = this.service.findByID(id);
 		if(studID == null)
-			return ResponseEntity.badRequest().build();	;	// id non presente su database
+			return ResponseEntity.badRequest().build();	;	// id non presente su database, restituisco status 400
 		
+		// l'id è presente, cancello il record
 		this.service.delOne(id);
-		return ResponseEntity.ok().build();		
+		return ResponseEntity.ok().build();	// restituisco status 200
 	}
 
 	// consumes e produces: sono opzionali

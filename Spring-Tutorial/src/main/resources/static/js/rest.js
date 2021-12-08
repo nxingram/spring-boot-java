@@ -116,6 +116,26 @@ function putOne() {
         });
 }
 
+function getAll() {
+    console.log("getAll-fetch");
+    const URL = "/api/studenti"; // mapping-action-rotta
+    let statusCode = "";
+
+    fetch(URL)
+        .then(response => {
+            statusCode = response.status; // salvo lo status della response
+            return response.json(); // restituisco il json convertito
+        })
+        .then(listaStudenti => {
+                // visualizzo lo status code
+                setStatusCode(statusCode, "status-getall");
+                
+                //  stampo/visualizzo gli studenti
+                printTable(listaStudenti, "getall");
+
+        });
+}
+
 function printStudent(studente, elementId) {
     // recupero l'ul dove inserire i dati
     let ul = document.getElementById(elementId);
@@ -144,4 +164,35 @@ function setStatusCode(statusCode, elementId) {
         span.className = "error";
     else
         span.className = "success";
+}
+
+function printTable(listaStudenti, elementId){
+        // recupero l'elemento dove inserire i dati
+        let tbody = document.getElementById(elementId);
+        tbody.innerHTML = "";
+
+        // ciclo la lista
+        for (const studente of listaStudenti) {
+            // nuova riga
+            let tr = document.createElement('tr');
+            
+            // ciclo le proprietà
+            for (const key in studente) {
+                if (Object.hasOwnProperty.call(studente, key)) {
+                    const element = studente[key];
+
+                    // nuova colonna
+                    let td = document.createElement("td");
+                    td.innerHTML = element;
+                    // aggiungo colonna alla riga
+                    tr.appendChild(td);
+                }
+            } // fine for-in
+
+            // aggiungo la riga al tbody
+            tbody.appendChild(tr);
+
+        } // fine for-of
+
+
 }

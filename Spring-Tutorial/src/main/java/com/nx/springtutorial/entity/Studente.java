@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 
 @Entity // questa classe corrisponde all'entità sul database
-@Table(name = "studente_es")
+@Table(name = "studente") // in questo caso  è optional perchè nome Classe (con maiuscola) è uguale alla tabella (minuscola)
 public class Studente {
 
 	@Id // questa è la chiave primaria
