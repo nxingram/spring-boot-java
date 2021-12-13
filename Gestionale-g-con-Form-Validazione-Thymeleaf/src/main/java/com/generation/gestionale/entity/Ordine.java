@@ -49,7 +49,7 @@ public class Ordine {
 	 * infinito
 	 */
 	@JsonIgnore
-	@OneToMany(mappedBy = "ordine")
+	@OneToMany(mappedBy = "ordine", fetch = FetchType.LAZY)
 	private List<OrdineDettaglio> ordiniDettaglio;
 
 	public Integer getId() {
