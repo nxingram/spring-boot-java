@@ -12,6 +12,6 @@ public interface StudenteService {
 	Studente addOne(Studente studente);
 	boolean emailExists(String email);
 	void delOne(int id);
-	Studente updateOne(Studente studente);
+	Studente saveOne(Studente studente);
 	Studente findByEmail(String email);
 }

@@ -50,7 +50,7 @@ public class StudenteServiceImpl implements StudenteService {
 	}
 
 	@Override
-	public Studente updateOne(Studente studente) {
+	public Studente saveOne(Studente studente) {
 		// ATTENZIONE!!
 		// SOVRASCRIVO lo studente su db in base all'id!
 		// stesso metodo "save" di addOne

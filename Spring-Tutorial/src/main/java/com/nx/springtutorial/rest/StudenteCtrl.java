@@ -118,7 +118,7 @@ public class StudenteCtrl {
 			return new ResponseEntity<Studente>(s, HttpStatus.BAD_REQUEST);						
 		}else {
 			// salvo, e restituisco lo studente con i campi aggiornati
-			s = this.service.updateOne(s);
+			s = this.service.saveOne(s);
 			return new ResponseEntity<Studente>(s, HttpStatus.OK);			
 		}
 		

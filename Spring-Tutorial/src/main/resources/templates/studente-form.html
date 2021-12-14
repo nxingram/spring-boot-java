@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- sostitisce a questo tag il codice contenut nel file indicato -->
+<link th:replace="/fragments/links.html">
+<title>MVC</title>
+</head>
+<body>
+	<div class="container">
+		<h1>MVC</h1>
+		<h2>Aggiorna Studente</h2>
+		<form th:action="@{/mvc/save}" method="post" th:object="${studente}">
+			<div>
+				<label for="nome">Nome</label> 
+				<input type="text" name="nome" id="nome" th:value="*{nome}" >
+			</div>
+			<div>
+				<label for="cognome">Cognome</label> 
+				<input type="text" name="cognome" th:value="*{cognome}"> 
+			</div>
+			<div>
+				<label for="email">Email</label> 
+				<input type="email" name="email" th:value="*{email}">
+			</div>
+			<input type="hidden" name="id" th:value="*{id}">
+			<input type="submit" value="Salva">
+		</form>
+	</div>
+
+
+	<!-- sostitisce a questo tag il codice contenut nel file indicato -->
+	<script th:replace="/fragments/scripts.html"></script>
+</body>
+</html>
