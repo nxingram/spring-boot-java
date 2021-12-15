@@ -1,6 +1,8 @@
 package com.generation.fileuploadblobdatabase.entity;
 
+import javax.persistence.Basic;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,6 +36,7 @@ public class Veicolo {
 	 * @Lob : array di bytes, mappato in un BLOB
 	 */
 	@Lob
+	@Basic(fetch = FetchType.LAZY)
 	private byte[] data;
  
 	public Veicolo() {

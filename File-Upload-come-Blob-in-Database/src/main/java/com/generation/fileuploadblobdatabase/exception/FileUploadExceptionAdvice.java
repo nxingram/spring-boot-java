@@ -10,8 +10,8 @@ import com.generation.fileuploadblobdatabase.dto.MessaggioDto;
 
 
 /**
- * classe per gestire eccezioni
-
+ * Classe per gestire eccezioni
+ * @ControllerAdvice indica a spring boot che questa classe contiene un metodo per intercettare le eccezioni lanciate dalle Request
  */
 @ControllerAdvice
 public class FileUploadExceptionAdvice {

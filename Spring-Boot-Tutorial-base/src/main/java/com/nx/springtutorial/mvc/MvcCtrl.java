@@ -48,7 +48,7 @@ public class MvcCtrl {
 			return "redirect:/mvc";
 		
 		// lo aggiungo al model
-		model.addAttribute("studente", studente);
+		model.addAttribute("studente", studente); 
 		
 		// inoltro i dati alla pagina thymeleaf studente-form.html
 		return "studente-form";	

@@ -14,7 +14,8 @@ import com.generation.fileupload.service.VeicoloService;
 /**
  * Tutorial <br>
  * https://www.codejava.net/frameworks/spring-boot/spring-boot-file-upload-tutorial
- *
+ * 
+ * Multipart Content-Type: https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html *
  */
 @Controller
 @RequestMapping("/mvc/veicolo")

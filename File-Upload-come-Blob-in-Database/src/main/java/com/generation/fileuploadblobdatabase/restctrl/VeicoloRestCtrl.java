@@ -27,10 +27,13 @@ import com.generation.fileuploadblobdatabase.service.IVeicoloService;
 /**
  * https://www.bezkoder.com/spring-boot-upload-file-database/
  * REST
+ * Usare Postman o simile per effettuare le requests di prova
+ * 
+ * Multipart Content-Type: https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html
  */
 @RestController
-@RequestMapping("api/veicolo")
-@CrossOrigin("http://localhost:8080")
+@RequestMapping("/api/veicolo")
+@CrossOrigin("http://localhost:8081") // necessario se la request proviene da un altro sito/dominio o postman
 public class VeicoloRestCtrl {
 
 	@Autowired
@@ -76,12 +79,13 @@ public class VeicoloRestCtrl {
 	public ResponseEntity<List<VeicoloDto>> getListFiles(){
 		
 		// 1) prendo tutti i veicoli
-		// 2) trasformo una lista di veicoli, in una lista di veicoliDto
+		// 2) Opzionale: trasformo una lista di veicoli, in una lista di veicoliDto
 		// (oppure restituire direttamnte la lista, senza mapparlo su un dto => vai direttamente a 6)
 		
 		// 3) genero il percorso per scaricare l'immagine chimando la rotta /files/id
 		// 4) creo il VeicoloDto con dentro il percorso del file,	
 		// per non mandare tutte le immagini che peserebbero troppo 
+		
 		// 5) restituisco a map il veicolo mappato sul dto
 		// 6) restituisco la lista dei veicoliDto
 
