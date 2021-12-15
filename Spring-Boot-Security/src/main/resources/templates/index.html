@@ -4,35 +4,51 @@
 <body>
 	<div class="container">
 		<div th:replace="/components/navbar">navbar.html</div>
-		
-<!-- 		utente non loggato -->
+
+		<!-- 		utente non loggato -->
 		<div th:if="${user == null}">
-			<a href="/register/" class="btn btn-primary">Registrazione</a></li>
+			<a href="/register/" class="btn btn-primary">Registrazione</a>
+			</li>
 		</div>
-		
-<!-- 		utente loggato -->
+
+		<!-- 		utente loggato -->
 		<div th:if="${user != null}">
-		
+
 			<div>
 				<div class="fw-bold">Benvenuto</div>
-				<div>Utente:<span th:text="${user.name}" class="ps-2  fw-bold"></span></div>
-				<div>Email:<span th:text="${user.username}" class="ps-2 fw-bold"></span></div>
-				<div>Ruolo:<span th:text="${user.role}" class="ps-2 fw-bold"></span></div>
-			</div>		
-		
-<!-- 		pagine ROLE_USER or ROLE_ADMIN-->
-			<div th:if="${user.role=='ROLE_USER' ||  user.role=='ROLE_ADMIN'}" class="mt-3">
-				<a href="/user" class="btn btn-primary">Pagina User</a></li>
+				<div>
+					Utente:<span th:text="${user.name}" class="ps-2  fw-bold"></span>
+				</div>
+				<div>
+					Email:<span th:text="${user.username}" class="ps-2 fw-bold"></span>
+				</div>
+				<div>
+					Ruolo:<span th:text="${user.role}" class="ps-2 fw-bold"></span>
+				</div>
 			</div>
-		
-<!-- 		pagine ROLE_ADMIN -->
+
+			<!-- 		pagine ROLE_USER or ROLE_ADMIN-->
+			<div th:if="${user.role=='ROLE_USER' ||  user.role=='ROLE_ADMIN'}"
+				class="mt-3">
+				<a href="/user" class="btn btn-primary">Pagina User</a>
+				</li>
+			</div>
+
+			<!-- 		pagine ROLE_ADMIN -->
 			<div th:if="${user.role=='ROLE_ADMIN'}" class="mt-3">
-				<a href="/admin" class="btn btn-primary">Pagina Admin</a></li>
+				<a href="/admin" class="btn btn-primary">Pagina Admin</a>
+				</li>
 			</div>
-		
+
 		</div>
-		
-	
+		<!-- Istruzioni -->
+		<div class="mt-5" th:if="${user == null}">
+			<h5>Istruzioni:</h5>
+			<p>Crare 2 utenti</p>
+			<p>Su database impostare il "role" (ruolo) per
+				l'admin: "ROLE_ADMIN"</p>
+			<p>Eseguire da men&ugrave; in alto il Login con i 2 utenti</p>
+		</div>
 	</div>
 	<script th:replace="/components/footer"></script>
 </body>

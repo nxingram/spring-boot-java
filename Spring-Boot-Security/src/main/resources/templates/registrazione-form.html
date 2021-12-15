@@ -4,38 +4,43 @@
 <body>
 	<div class="container">
 		<div th:replace="/components/navbar">navbar.html</div>
-		
+
 		<h2 class="mb-4">Registrazione Utente</h2>
 		<div class="mb-4">
-			<form action="/register" method="post" th:object="${registrationForm}">
-			
-<!-- 				messaggio errore -->
+			<form action="/register" method="post"
+				th:object="${registrationForm}">
+
+				<!-- 				messaggio errore -->
 				<div th:if="${#fields.hasErrors()}" class="mb-3">
-					<span class="alert-danger">Correggere gli errori e reinviare.</span>
+					<span class="alert-danger">Correggere gli errori e
+						reinviare.</span>
 				</div>
-			
+
 				<div class="mb-3">
-					<label for="username" class="form-label">Email: </label> 
-					<input type="text" th:field="*{username}" class="mb-1 form-control">
-	<!-- 				errore username -->
-					<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="alert-danger mb-3" ></span>
+					<label for="username" class="form-label">Email: </label> <input
+						type="text" th:field="*{username}" class="mb-1 form-control">
+					<!-- 				errore username -->
+					<span th:if="${#fields.hasErrors('username')}"
+						th:errors="*{username}" class="alert-danger mb-3"></span>
 				</div>
-				
+
 				<div class="mb-3">
-					<label for="password" class="form-label">Password: </label> 
-					<input type="password" th:field="*{password}" class="mb-1 form-control">
-	<!-- 				errore password -->
-					<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="alert-danger mb-3" ></span>
+					<label for="password" class="form-label">Password: </label> <input
+						type="password" th:field="*{password}" class="mb-1 form-control">
+					<!-- 				errore password -->
+					<span th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}" class="alert-danger mb-3"></span>
 				</div>
-				
+
 				<div class="mb-3">
-					<label for="name" class="form-label">Name: </label> 
-					<input type="text" th:field="*{name}" class="mb-1 form-control">
-	<!-- 				errore password -->
-					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert-danger mb-3" ></span>
+					<label for="name" class="form-label">Name: </label> <input
+						type="text" th:field="*{name}" class="mb-1 form-control">
+					<!-- 				errore password -->
+					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+						class="alert-danger mb-3"></span>
 				</div>
-				
-				
+
+
 				<input type="submit" value="Ivia" class="btn btn-primary" />
 			</form>
 		</div>

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -21,8 +22,8 @@ import org.springframework.security.core.userdetails.UserDetails;
  * Esempio => https://github.com/habuma/spring-in-action-5-samples/tree/master/ch04/tacos/src/main/java/tacos/security
  */
 @Entity
-public class User implements UserDetails {
-	
+@Table(name = "utente")
+public class User implements UserDetails {	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
