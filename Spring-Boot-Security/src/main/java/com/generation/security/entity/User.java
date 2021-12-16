@@ -36,7 +36,8 @@ public class User implements UserDetails {
 
 	private String name;
 	
-	private String role="ROLE_USER";
+	private String role="ROLE_USER";  // default role: user
+	
 	private Boolean enabled=true;
 
 	@Override

@@ -31,6 +31,17 @@ public class SecurityMvcCtrl {
 	@Autowired
 	private PasswordEncoder _passwordEncoder;
 	
+	@ModelAttribute //1
+	public User loggedUser(@AuthenticationPrincipal User user) {// 2
+		// 1) inietta automaticamente l'utente loggato in tutte le views di questo controller 
+		// se non è logggato è == NULL
+		
+		// 2) @AuthenticationPrincipal == Authentication.getPrincipal()
+		// assegna l'utente loggato all'argomento del metodo, in questo caso "User user"
+		
+		return user;
+	}
+	
 	@GetMapping("/register")
 	public String registrazioneForm(RegistrationForm form, Model model) {
 		return "registrazione-form";
@@ -85,12 +96,6 @@ public class SecurityMvcCtrl {
 		return "login-form";
 	}
 	
-	@ModelAttribute //1
-	public User loggedUser(@AuthenticationPrincipal User user) {
-		// 1) inietta automaticamente l'utente loggato in tutte le views di questo controller
-		// se non è logggato è == null
-		
-		return user;
-	}
+
 	
 }
