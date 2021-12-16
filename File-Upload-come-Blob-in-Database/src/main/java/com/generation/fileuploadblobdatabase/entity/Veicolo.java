@@ -37,7 +37,7 @@ public class Veicolo {
 	 */
 	@Lob
 	@Basic(fetch = FetchType.LAZY)
-	private byte[] data;
+	private byte[] dataBlob;
  
 	public Veicolo() {
 	}
@@ -46,7 +46,7 @@ public class Veicolo {
 		this.name = name;
 		this.fileName = fileName;
 		this.type = type;
-		this.data = data;
+		this.dataBlob = data;
 	}
 
 	public int getId() {
@@ -74,11 +74,11 @@ public class Veicolo {
 	}
 
 	public byte[] getData() {
-		return data;
+		return dataBlob;
 	}
 
 	public void setData(byte[] data) {
-		this.data = data;
+		this.dataBlob = data;
 	}
 
 	public String getFileName() {

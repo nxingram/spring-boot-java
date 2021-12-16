@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +47,7 @@ public class VeicoloRestCtrl {
 	 * @return messaggio
 	 */
 	@PostMapping("/upload")
-	public ResponseEntity<MessaggioDto> uploadVeicolo(Veicolo veicolo, @RequestParam("file") MultipartFile file){
+	public ResponseEntity<MessaggioDto> uploadVeicolo(Veicolo veicolo, @RequestParam("image") MultipartFile file){
 		
 		// 1) salvo il veicolo con l'immagine su db
 		// 2) se salvato correttamente, restituisco un messaggio ok
@@ -136,25 +137,25 @@ public class VeicoloRestCtrl {
 		return ResponseEntity.ok().body(veicolo);
 	}
 	
-	/**
-	 * Restituisce l'immagine
-	 * @param id del veicolo
-	 * @return immagine
-	 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition
-	 */
-	@GetMapping("/immagine/{id}")
-	public ResponseEntity<byte[]> downloadImmagine(@PathVariable int id){
-		// 1) prendo il veicolo 
-		// 2) restituisco l'immagine del veicolo
-		
-		//1
-		Veicolo veicolo = _service.getVeicoloById(id);		
-		//2
-		return ResponseEntity
-				.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + veicolo.getFileName() + "\"") // fa scaricare l'immagine
-				.body(veicolo.getData());
-	}
+//	/**
+//	 * Restituisce l'immagine
+//	 * @param id del veicolo
+//	 * @return immagine
+//	 * https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition
+//	 */
+//	@GetMapping("/immagine/{id}")
+//	public ResponseEntity<byte[]> downloadImmagine(@PathVariable int id){
+//		// 1) prendo il veicolo 
+//		// 2) restituisco SOLO l'immagine del veicolo come blob
+//		
+//		//1
+//		Veicolo veicolo = _service.getVeicoloById(id);		
+//		//2
+//		return ResponseEntity
+//				.ok()
+//				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + veicolo.getFileName() + "\"") // fa scaricare l'immagine
+//				.body(veicolo.getData());
+//	}
 	
 	
 	
