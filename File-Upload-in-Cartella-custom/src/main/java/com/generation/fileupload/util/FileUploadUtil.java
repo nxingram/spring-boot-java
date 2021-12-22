@@ -14,30 +14,40 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadUtil {
 
 	public static void saveFile(String uploadDir, String fileName, MultipartFile multipartFile) throws IOException {
-		
+
 		// 1) converte percorso stringa in un path
 		// 2) crea cartella se non esiste dove salvare l'immagine
 		// 3) sovrascrive file se già presente con stesso nome
-		
-		//1
+
+		// 1
 		Path uploadPath = Paths.get(uploadDir);
-		
-		if(!Files.exists(uploadPath)) { 
-			//2
+
+		if (!Files.exists(uploadPath)) {
+			// 2
 			Files.createDirectories(uploadPath); // throws IOException
 		}
-		try(InputStream inputStream = multipartFile.getInputStream()) {
+		try (InputStream inputStream = multipartFile.getInputStream()) {
 			Path filePath = uploadPath.resolve(fileName); // percorso file completo
-			//3 
+			// 3
 			Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-			
-			//FileUtils.deleteDirectory(new File(fileName));
-			
+
+			// FileUtils.deleteDirectory(new File(fileName));
+
 		} catch (IOException ioe) {
 			throw new IOException("Could not save image file: " + fileName, ioe);
 		}
-		
-		
-		
+	}
+
+	public static void deleteDir(String dir) {
+		try {
+			if (!Files.exists(Paths.get(dir))) {
+				// aggiungere nel pom.xml la dipendenza "commons-io"
+				// <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+				// non funziona, da verificare
+				FileUtils.deleteDirectory(new File(dir));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

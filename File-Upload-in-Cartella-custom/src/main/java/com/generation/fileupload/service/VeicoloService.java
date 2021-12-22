@@ -2,11 +2,12 @@ package com.generation.fileupload.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.tomcat.util.http.fileupload.FileUtils;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -78,21 +79,14 @@ public class VeicoloService implements IVeicoloService {
 
 	@Override
 	public void deleteVeicolo(Veicolo trovato) {
-		String url =  "/" + CustomProperties.basepath + "/" + trovato.getId();
+		String dir =  "/" + CustomProperties.basepath + "/" + trovato.getId();
 		
 		// cancello veicolo
 		_repo.delete(trovato);
 		
-		// cancello immagini
-		try {
-			// org.apache.tomcat.util.http.fileupload.FileUtils;
-			// non funziona, da verificare
-			FileUtils.deleteDirectory(Paths.get(url).toFile());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-				
+		// cancello immagini e cartella
+		// TODO: bug - non funziona, da verificare
+		FileUploadUtil.deleteDir(dir);			
 		
 	}
 
