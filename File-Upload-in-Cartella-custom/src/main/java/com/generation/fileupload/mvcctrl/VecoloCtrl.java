@@ -3,6 +3,7 @@ package com.generation.fileupload.mvcctrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,10 +20,16 @@ import com.generation.fileupload.service.VeicoloService;
  */
 @Controller
 @RequestMapping("/mvc/veicolo")
-public class VicoloCtrl {
+public class VecoloCtrl {
 
 	@Autowired
     private VeicoloService _serv;
+	
+	@GetMapping
+	public String index(Model model) {
+		model.addAttribute("veicolo", new Veicolo());
+		return "veicolo-form";
+	}
 	
 	@PostMapping("/save")
 	public String salvaVeicolo(Veicolo veicolo, @RequestParam("image") MultipartFile multipartFile, Model model) {

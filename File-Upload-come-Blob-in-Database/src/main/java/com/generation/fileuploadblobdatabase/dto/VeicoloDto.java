@@ -1,13 +1,13 @@
 package com.generation.fileuploadblobdatabase.dto;
 
 public class VeicoloDto {
-
 	private int id;
 	private String name;
 	private String fileName;
 	private String type;
 	private String url;
 	private long size;
+
 	
 	
 	public int getId() {

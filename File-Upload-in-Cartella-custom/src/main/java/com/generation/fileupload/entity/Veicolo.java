@@ -20,12 +20,29 @@ public class Veicolo {
 	private int id;
 	
 	private String name;	
-	private String photo;
+	private String fileName;	
+	
+	// metodo che gera l'ulr senza salvarlo su database
+	@Transient // non viene salvata su database
+    public String getUrl() {
 
+		// 1) percorso immagine di default se non è stata caricata
+		// 2) percorso immagine caricata
+
+		if (fileName == null || fileName.equals("")) {
+        	//1
+        	return "/" + CustomProperties.defaultImg;        	
+        }
+
+        //2
+        return "/" + CustomProperties.basepath + "/" + id + "/" + fileName;
+    }
+	
+	// getters e setters
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -38,29 +55,20 @@ public class Veicolo {
 		this.name = name;
 	}
 
-	public String getPhoto() {
-		return photo;
+	public String getFileName() {
+		return fileName;
 	}
 
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
+
+
+
+
+
+
 	
-	
-	@Transient // non viene salvata su database
-    public String getPhotosImagePath() {
-
-		// 1) percorso immagine di default se non è stata caricata
-		// 2) percorso immagine caricata
-
-		if (photo == null || photo.equals("")) {
-        	//1
-        	return "/" + CustomProperties.defaultImg;        	
-        }
-
-        //2
-        return "/" + CustomProperties.basepath + "/" + id + "/" + photo;
-    }
 
 	
 	

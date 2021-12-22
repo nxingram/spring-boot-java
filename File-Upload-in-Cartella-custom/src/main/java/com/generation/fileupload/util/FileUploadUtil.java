@@ -1,5 +1,6 @@
 package com.generation.fileupload.util;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -7,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUploadUtil {
@@ -28,6 +30,8 @@ public class FileUploadUtil {
 			Path filePath = uploadPath.resolve(fileName); // percorso file completo
 			//3 
 			Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+			
+			//FileUtils.deleteDirectory(new File(fileName));
 			
 		} catch (IOException ioe) {
 			throw new IOException("Could not save image file: " + fileName, ioe);

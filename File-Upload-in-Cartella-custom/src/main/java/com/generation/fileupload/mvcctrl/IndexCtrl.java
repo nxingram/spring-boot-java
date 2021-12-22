@@ -12,7 +12,7 @@ import com.generation.fileupload.entity.Veicolo;
 @RequestMapping("/")
 public class IndexCtrl {
 
-	@GetMapping
+	@GetMapping("/mvc")
 	public String index(Model model) {
 		model.addAttribute("veicolo", new Veicolo());
 		return "veicolo-form";

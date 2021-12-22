@@ -136,6 +136,7 @@ function getAll() {
         });
 }
 
+
 function printStudent(studente, elementId) {
     // recupero l'ul dove inserire i dati
     let ul = document.getElementById(elementId);

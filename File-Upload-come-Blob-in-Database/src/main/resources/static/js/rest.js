@@ -2,40 +2,7 @@ document.getElementById("post-image").addEventListener("click", postVeicolo);
 document.getElementById("get-veicoli").addEventListener("click", getVeicoli);
 
 
-
-function getVeicoloById() {
-    console.log(this.getAttribute("id"));
-    const div = document.getElementById("div-immagine");
-    div.innerHTML = "";
-
-    const URL = this.childNodes[0].textContent;
-
-
-    fetch(URL)
-            .then(response => {
-                console.log(response.status);
-                return response.json();
-            }).then(veicolo => {
-                console.log(veicolo);
-                
-                fetch("")
-                
-                let img = document.createElement("img");
-
-                let src = "data:"+veicolo.type+";base64,"+veicolo.data;
-                console.log(src);
-                
-                img.setAttribute('src', src);
-
-                img.setAttribute('width', '500px');
-                // img.setAttribute('height', '200px');
-                div.appendChild(img);
-            });
-
-}
-
-
-
+// get all veicoli
 function getVeicoli() {
     const table = document.getElementById("lista-veicoli");
     table.innerHTML = "";
@@ -78,7 +45,7 @@ function getVeicoli() {
 }
 
 
-
+// aggiungi veicolo
 function postVeicolo() {
     const name = document.getElementById("name").value;
 
@@ -105,5 +72,35 @@ function postVeicolo() {
         .then(x => {
             console.log(x.messaggio)
         });
+
+}
+
+// get un veicolo
+function getVeicoloById() {
+    console.log(this.getAttribute("id"));
+    const div = document.getElementById("div-immagine");
+    div.innerHTML = "";
+
+    const URL = this.childNodes[0].textContent;
+
+
+    fetch(URL)
+            .then(response => {
+                console.log(response.status);
+                return response.json();
+            }).then(veicolo => {
+                console.log(veicolo);
+                
+                let img = document.createElement("img");
+
+                let src = "data:" + veicolo.type + ";base64," + veicolo.data;
+                console.log(src);
+                
+                img.setAttribute('src', src);
+
+                img.setAttribute('width', '500px');
+                // img.setAttribute('height', '200px');
+                div.appendChild(img);
+            });
 
 }

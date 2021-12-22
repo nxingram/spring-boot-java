@@ -1,7 +1,12 @@
 package com.generation.fileupload.service;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Optional;
 
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -31,7 +36,7 @@ public class VeicoloService implements IVeicoloService {
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 		
 		//2
-		veicolo.setPhoto(fileName);
+		veicolo.setFileName(fileName);
 		
 		//3
 		Veicolo veicoloSalvato = _repo.save(veicolo);
@@ -56,4 +61,40 @@ public class VeicoloService implements IVeicoloService {
 	public Veicolo saveVeicolo(Veicolo veicolo) {
 		return _repo.save(veicolo);
 	}
+
+	@Override
+	public List<Veicolo> getAllVeicoli() {
+		return _repo.findAll();
+	}
+
+	@Override
+	public Veicolo getVeicoloById(int id) {
+		Optional<Veicolo> optional = _repo.findById(id);
+		if(optional.isPresent())
+			return optional.get();
+		else
+			return null;
+	}
+
+	@Override
+	public void deleteVeicolo(Veicolo trovato) {
+		String url =  "/" + CustomProperties.basepath + "/" + trovato.getId();
+		
+		// cancello veicolo
+		_repo.delete(trovato);
+		
+		// cancello immagini
+		try {
+			// org.apache.tomcat.util.http.fileupload.FileUtils;
+			// non funziona, da verificare
+			FileUtils.deleteDirectory(Paths.get(url).toFile());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+				
+		
+	}
+
+
 }
