@@ -1,13 +1,9 @@
 package com.generation.fileupload.service;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -79,14 +75,13 @@ public class VeicoloService implements IVeicoloService {
 
 	@Override
 	public void deleteVeicolo(Veicolo trovato) {
-		String dir =  "/" + CustomProperties.basepath + "/" + trovato.getId();
-		
-		// cancello veicolo
-		_repo.delete(trovato);
-		
+
 		// cancello immagini e cartella
 		// TODO: bug - non funziona, da verificare
-		FileUploadUtil.deleteDir(dir);			
+		FileUploadUtil.deleteDir(trovato);	
+		
+		// cancello veicolo
+		_repo.delete(trovato);		
 		
 	}
 

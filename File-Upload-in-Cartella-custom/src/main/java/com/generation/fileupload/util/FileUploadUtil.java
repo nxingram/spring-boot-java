@@ -11,6 +11,9 @@ import java.nio.file.StandardCopyOption;
 import org.apache.commons.io.FileUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.generation.fileupload.config.CustomProperties;
+import com.generation.fileupload.entity.Veicolo;
+
 public class FileUploadUtil {
 
 	public static void saveFile(String uploadDir, String fileName, MultipartFile multipartFile) throws IOException {
@@ -38,12 +41,16 @@ public class FileUploadUtil {
 		}
 	}
 
-	public static void deleteDir(String dir) {
+	public static void deleteDir(Veicolo trovato) {
 		try {
-			if (!Files.exists(Paths.get(dir))) {
-				// aggiungere nel pom.xml la dipendenza "commons-io"
+
+			String dir = CustomProperties.basepath + "/" + trovato.getId();
+			
+			if (Files.exists(Paths.get(dir))) {
+				// N.B. aggiungere nel pom.xml la dipendenza "commons-io"
 				// <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-				// non funziona, da verificare
+
+
 				FileUtils.deleteDirectory(new File(dir));
 			}
 		} catch (IOException e) {
