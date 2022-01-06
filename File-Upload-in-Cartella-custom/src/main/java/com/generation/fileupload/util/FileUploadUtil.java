@@ -34,7 +34,6 @@ public class FileUploadUtil {
 			// 3
 			Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
 
-			// FileUtils.deleteDirectory(new File(fileName));
 
 		} catch (IOException ioe) {
 			throw new IOException("Could not save image file: " + fileName, ioe);

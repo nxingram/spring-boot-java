@@ -22,8 +22,7 @@ public class Veicolo {
 	private String name;	
 	private String fileName;	
 	
-	// metodo che gera l'ulr senza salvarlo su database
-	@Transient // non viene salvata su database
+	// metodo che gera l'url
     public String getUrl() {
 
 		// 1) percorso immagine di default se non è stata caricata

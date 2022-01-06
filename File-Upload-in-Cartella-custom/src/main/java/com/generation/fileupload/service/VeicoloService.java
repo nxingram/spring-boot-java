@@ -77,7 +77,6 @@ public class VeicoloService implements IVeicoloService {
 	public void deleteVeicolo(Veicolo trovato) {
 
 		// cancello immagini e cartella
-		// TODO: bug - non funziona, da verificare
 		FileUploadUtil.deleteDir(trovato);	
 		
 		// cancello veicolo
