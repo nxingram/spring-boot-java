@@ -32,7 +32,7 @@ public class VecoloCtrl {
 	}
 	
 	@PostMapping("/save")
-	public String salvaVeicolo(Veicolo veicolo, @RequestParam("image") MultipartFile multipartFile, Model model) {
+	public String salvaVeicolo(Veicolo veicolo, @RequestParam(name = "image", required = false) MultipartFile multipartFile, Model model) {// in alternativa usare @RequestPart
 		// 1) creo un veicolo vuoto da restituire (con l'id)
 		// 2) controllo se è stata caricata un'immagine
 		// 3) non è stata caricata una immagine, salvo comunque il veicolo

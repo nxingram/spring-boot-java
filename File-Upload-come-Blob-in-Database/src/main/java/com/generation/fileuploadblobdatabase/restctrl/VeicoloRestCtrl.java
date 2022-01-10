@@ -47,7 +47,7 @@ public class VeicoloRestCtrl {
 	 * @return messaggio
 	 */
 	@PostMapping("/upload")
-	public ResponseEntity<MessaggioDto> uploadVeicolo(Veicolo veicolo, @RequestParam("image") MultipartFile file){
+	public ResponseEntity<MessaggioDto> uploadVeicolo(Veicolo veicolo, @RequestParam("image") MultipartFile file){ // in alternativa usare @RequestPart
 		
 		// 1) salvo il veicolo con l'immagine su db
 		// 2) se salvato correttamente, restituisco un messaggio ok

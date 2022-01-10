@@ -40,7 +40,7 @@ public class VeicoloRestCtrl {
 	 * @param file    : immagine
 	 */
 	@PostMapping("/upload")
-	public ResponseEntity<Veicolo> uploadVeicolo(Veicolo veicolo, @RequestParam(name = "image", required = false) MultipartFile file) {
+	public ResponseEntity<Veicolo> uploadVeicolo(Veicolo veicolo, @RequestParam(name = "image", required = false) MultipartFile file) {// in alternativa usare @RequestPart
 
 		Veicolo veicoloSalvato = new Veicolo(); // vuoto
 
