@@ -68,7 +68,7 @@ public class Impiegato {
 	 * infinito
 	 */
 	@JsonIgnore
-	@OneToMany(mappedBy = "impiegato", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "impiegato")
 	private List<Ordine> ordini;
 
 	public Integer getId() {

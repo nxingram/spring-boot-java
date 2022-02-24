@@ -65,7 +65,7 @@ public class Cliente {
 	 * infinito
 	 */
 	@JsonIgnore
-	@OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "cliente")
 	private List<Ordine> ordini;
 	
 	

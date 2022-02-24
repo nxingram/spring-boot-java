@@ -6,7 +6,7 @@
 		<div th:replace="/components/navbar">navbar.html</div>
 
 		<h2>Elenco Impiegati</h2>
-		<div class="row row-cols-3">
+		<div class="row row-cols-md-3">
 			<div th:each="imp : ${impiegati}" class="col mb-3">
 
 				<div class="card" style="width: 400px" th:id="${imp.id}">

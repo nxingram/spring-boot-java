@@ -56,7 +56,7 @@ public class Articolo {
 	 * infinito
 	 */
 	@JsonIgnore
-	@OneToMany(mappedBy = "articolo", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "articolo")
 	private List<OrdineDettaglio> ordiniDettaglio;
 
 	public Integer getId() {

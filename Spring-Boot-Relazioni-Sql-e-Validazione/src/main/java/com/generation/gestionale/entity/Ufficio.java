@@ -37,7 +37,7 @@ public class Ufficio {
 	 * infinito
 	 */
 	@JsonIgnore
-	@OneToMany(mappedBy = "ufficio", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "ufficio")
 	private List<Impiegato> impiegato;
 
 	public Integer getId() {
