@@ -10,7 +10,7 @@ import com.generation.gestionale.repository.IClienteRepo;
 import com.generation.gestionale.service.iservice.IClienteService;
 
 @Service
-public class ServiceCliente implements IClienteService {
+public class ClienteService implements IClienteService {
 	
 	@Autowired
 	private IClienteRepo _rCliente;
