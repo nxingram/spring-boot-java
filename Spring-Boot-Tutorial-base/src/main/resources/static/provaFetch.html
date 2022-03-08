@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+    <h1>prova fetch</h1>
+
+
+    <input type="number" id="idStudente">
+    <button id="byIdButton">by id</button>
+    
+    <div id="ouput"></div>
+
+    <input type="text" id="email">
+    <button id="post">post</button>
+
+    <script>
+
+
+// 			GET
+//         fetch("/api/studenti") //request con method:get
+//             .then(response => response.json())//response trasformo in oggeto json
+//             .then(studenti => {
+//                 console.log(studenti);
+//                 console.log(studenti[0].nome)
+//             })
+
+let button = document.getElementById("byIdButton");
+button.addEventListener("click", getById2);
+
+let button2 = document.getElementById("post");
+button2.addEventListener("click", post);
+        
+function getById(){
+
+    //GET
+    let id = document.getElementById("idStudente").value;
+    const url = "/api/studenti/" + id;
+
+    fetch(url) //request con method:get
+    .then(response => response.json())//response trasformo in oggeto json
+    .then(studente => {
+        console.log(studente.nome);
+        let div = document.getElementById("ouput");
+
+        let span = document.createElement("span");
+        span.textContent = studente.nome
+        span.setAttribute("id", studente.id)
+
+        div.appendChild(span)
+    })
+}
+
+
+async function getById2(){
+    //GET
+    let id = document.getElementById("idStudente").value;
+    const url = "/api/studenti/" + id;
+
+    let studente = await fetch(url).then(response => response.json());
+    
+    let div = document.getElementById("ouput");
+    let span = document.createElement("span");
+    span.textContent = studente.nome
+    span.setAttribute("id", studente.id)
+
+    div.appendChild(span)
+
+
+}
+
+
+//         POST
+function post(){
+    const url = "/api/studenti/";
+
+    let nuovoStudente = {
+        "nome":"nomeProva",
+        "cognome":"cognProva",
+        "email": document.getElementById("email").value
+    }
+
+    let opzioni = {
+        method:'POST',
+        body : JSON.stringify(nuovoStudente),
+        headers : {
+            'Content-Type':'application/json'
+        }
+    }
+
+    fetch(url, opzioni)
+    .then(response =>{ 
+        if(    response.status != 200){
+            //stampa un elemnto con messaggio errore
+        }
+        return response.json();
+    }).then(studente => {
+
+        console.log(studente);
+    });
+
+
+}
+
+    </script>
+</body>
+</html>
