@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fetch</title>
+</head>
+
+<body>
+	<h1>prova fetch</h1>
+
+	<div>
+		<div>
+			<input type="number" id="idStudente">
+			<button id="byIdButton">by id</button>
+		</div>
+
+		<div id="ouput"></div>
+	</div>
+	<div>
+		<input type="text" id="email" placeholder="email">
+		<button id="post">post</button>
+	</div>
+
+	<script>
+		//debugger; // forza debug
+
+		let button = document.getElementById("byIdButton");
+		button.addEventListener("click", getById2);
+
+		let button2 = document.getElementById("post");
+		button2.addEventListener("click", post2);
+
+		function getById() {
+
+			//GET
+			let id = document.getElementById("idStudente").value;
+			const url = "/api/studenti/" + id;
+
+			fetch(url) //request con method:get
+				.then(response => response.json())//response trasformo in oggeto json
+				.then(studente => {
+					console.log(studente.nome);
+					let div = document.getElementById("ouput");
+
+					let span = document.createElement("span");
+					span.textContent = studente.nome
+					span.setAttribute("id", studente.id)
+
+					div.appendChild(span)
+				})
+		}
+
+
+		async function getById2() {
+			//GET
+			let id = document.getElementById("idStudente").value;
+			const url = "/api/studenti/" + id;
+
+			try {
+				let studente = await fetch(url).then(response => response.json());
+
+				let div = document.getElementById("ouput");
+				let span = document.createElement("span");
+				span.textContent = studente.nome;
+				span.setAttribute("id", studente.id);
+
+				div.appendChild(span);
+			} catch (exception) {
+
+			} finally {
+				// fai qualcosa comunque vada
+			}
+
+
+		}
+
+
+		//         POST
+		function post() {
+			const url = "/api/studenti/";
+
+			let nuovoStudente = {
+				"nome": "nomeProva",
+				"cognome": "cognProva",
+				"email": document.getElementById("email").value
+			};
+
+			let opzioni = {
+				method: 'POST',
+				body: JSON.stringify(nuovoStudente),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			};
+
+			fetch(url, opzioni)
+				.then(response => {
+					if (!response.ok) {
+					// response.status != 200
+					//stampa un elemento con messaggio ERRORE
+					}
+					return response.json();
+				}).then(studente => {
+					// fai qualcosa con oggetto studente
+					console.log(studente);
+				});
+
+
+		}
+
+		async function post2() {
+			const url = "/api/studenti/";
+
+			let nuovoStudente = {
+				"nome": "nomeProva",
+				"cognome": "cognProva",
+				"email": document.getElementById("email").value
+			};
+
+			const opzioni = {
+				method: 'POST',
+				body: JSON.stringify(nuovoStudente),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			};
+
+			// https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises#async_and_await
+			
+			try {
+				const response = await fetch(url, opzioni);
+				if (!response.ok) {
+					// response.status != 200
+					//stampa un elemento con messaggio ERRORE
+					throw new Error(`HTTP error: ${response.status}`);
+				}
+
+				let studente = await response.json();
+
+				// fai qualcosa con oggetto studente
+				console.log(studente);
+
+			} catch (exception) {
+
+			}
+
+
+		}
+
+	</script>
+</body>
+
+</html>
