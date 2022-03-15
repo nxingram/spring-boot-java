@@ -18,6 +18,7 @@ public class Dipendente {
 	
 	@OneToOne
 	@JoinColumn(name = "utente_id")
+//	@JoinColumn(name = "utente_id", referencedColumnName = "utenteId") // facoltativo specificare la chiave primaria di utente
 	private Utente utente;
 
 	public Dipendente() {

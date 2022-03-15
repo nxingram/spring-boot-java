@@ -16,11 +16,13 @@ public class Utente {
 	private String email;
 	private String password;
 	
-	@OneToOne(mappedBy = "utente")
-	private Dipendente dipendente;
+	//opzionale - relazione inversa
+//	@OneToOne(mappedBy = "utente")
+//	private Dipendente dipendente;
 
-	@OneToOne(mappedBy = "utente")
-	private Cliente cliente;
+	//opzionale - relazione inversa
+//	@OneToOne(mappedBy = "utente")
+//	private Cliente cliente;
 	
 	public Utente() {
 		super();
@@ -56,21 +58,21 @@ public class Utente {
 		this.password = password;
 	}
 
-	public Dipendente getDipendente() {
-		return dipendente;
-	}
-
-	public void setDipendente(Dipendente dipendente) {
-		this.dipendente = dipendente;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
+//	public Dipendente getDipendente() {
+//		return dipendente;
+//	}
+//
+//	public void setDipendente(Dipendente dipendente) {
+//		this.dipendente = dipendente;
+//	}
+//
+//	public Cliente getCliente() {
+//		return cliente;
+//	}
+//
+//	public void setCliente(Cliente cliente) {
+//		this.cliente = cliente;
+//	}
 	
 	
 	

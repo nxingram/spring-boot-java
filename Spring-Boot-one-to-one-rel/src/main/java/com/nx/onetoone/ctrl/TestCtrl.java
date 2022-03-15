@@ -29,6 +29,7 @@ public class TestCtrl {
 	
 	@GetMapping("test")
 	public void radice() {
+		// N.B. database è vuoto!!!
 		// vedi UtenteTest
 		List<Dipendente> dip = dRepo.findAll();
 		List<Cliente> cli = cRepo.findAll();
