@@ -31,29 +31,14 @@ public class VecoloCtrl {
 		return "veicolo-form";
 	}
 	
-	@PostMapping("/save")
-	public String salvaVeicolo(Veicolo veicolo, @RequestParam(name = "image", required = false) MultipartFile multipartFile, Model model) {// in alternativa usare @RequestPart
-		// 1) creo un veicolo vuoto da restituire (con l'id)
-		// 2) controllo se è stata caricata un'immagine
-		// 3) non è stata caricata una immagine, salvo comunque il veicolo
-		// 4) altrim salvo il veicolo su database, e l'immagine in una cartella
-		// 5) si può fare lo stesso percorso con un'api rest, e restituire solo il veicolo senza l'html
-
-		//1
-		Veicolo veicoloSalvato = new Veicolo(); // vuoto
-		
-		//2
-		if(multipartFile == null || multipartFile.isEmpty()) {
-			//3
-			veicoloSalvato = _serv.saveVeicolo(veicolo);
-			
-		}else {
-			//4
-			veicoloSalvato = _serv.saveVeicolo(veicolo, multipartFile);			
-		}
+	@PostMapping("/save") // in alternativa usare @RequestPart
+	public String salvaVeicolo(Veicolo veicolo, @RequestParam(name = "image", required = false) MultipartFile multipartFile, Model model) {
+	
+		// salvo veicolo con o senza immagine
+		_serv.saveVeicolo(veicolo, multipartFile);			
         
-        //5
-        model.addAttribute("veicolo", veicoloSalvato);
+        // si può fare lo stesso percorso con un'api rest, e restituire solo il veicolo senza l'html
+        model.addAttribute("veicolo", veicolo);
         
 		return "file-salvato";
 	}

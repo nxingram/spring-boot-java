@@ -18,20 +18,16 @@ public class FileUploadUtil {
 
 	public static void saveFile(String uploadDir, String fileName, MultipartFile multipartFile) throws IOException {
 
-		// 1) converte percorso stringa in un path
-		// 2) crea cartella se non esiste dove salvare l'immagine
-		// 3) sovrascrive file se già presente con stesso nome
-
-		// 1
+		// converte percorso stringa in un path
 		Path uploadPath = Paths.get(uploadDir);
 
 		if (!Files.exists(uploadPath)) {
-			// 2
+			// crea cartella se non esiste dove salvare l'immagine
 			Files.createDirectories(uploadPath); // throws IOException
 		}
 		try (InputStream inputStream = multipartFile.getInputStream()) {
 			Path filePath = uploadPath.resolve(fileName); // percorso file completo
-			// 3
+			// sovrascrive file se già presente con stesso nome
 			Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
 
 

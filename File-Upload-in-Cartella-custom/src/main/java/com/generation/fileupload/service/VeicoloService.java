@@ -1,6 +1,11 @@
 package com.generation.fileupload.service;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,42 +27,55 @@ public class VeicoloService implements IVeicoloService {
 	
 	 public Veicolo saveVeicolo(Veicolo veicolo, MultipartFile multipartFile) {
 		 
-		 // 1) nome del file o immagine
-		 // 2) setto nome del file prima di salvare il veicolo
-		 // 3) salvo il veicolo
-		 // 4) genero il percorso della cartella dove salvare l'immagine
-		 // 5) classe utility con metodo statico che salva il file
-		 // 6) restituisco il veicolo salvato
+		// controllo se è stata caricata un'immagine
+		if(multipartFile == null || multipartFile.isEmpty()) {
+			// non è stata caricata una immagine, salvo comunque il veicolo
+			_repo.save(veicolo);
+			
+			// ritorno al controller
+			return veicolo;		
+		}
+		 
+		// c'è 1 immagine da salvare oltre ai dati del veicolo
+		// nome del file o immagine, rimuovo spazi
+		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename().strip().replace(" ", "-"));
 		
-		//1
-		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-		
-		//2
-		veicolo.setFileName(fileName);
-		
-		//3
-		Veicolo veicoloSalvato = _repo.save(veicolo);
+		// setto nome del file prima di salvare il veicolo
+		veicolo.setFileName(fileName);		
+		// salvo il veicolo
+		_repo.save(veicolo);
 
-		//4
-		String uploadDir = CustomProperties.basepath + "/" + veicoloSalvato.getId();
+		// genero il percorso della cartella dove salvare l'immagine
+		String uploadDir = CustomProperties.basepath + "/" + veicolo.getId();
 		 
         try {
-        	//5
-			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+			// converte percorso stringa in un path
+			Path uploadPath = Paths.get(uploadDir);
+
+			if (!Files.exists(uploadPath)) {
+				// crea cartella, se non esiste, dove salvare l'immagine
+				Files.createDirectories(uploadPath); // throws IOException
+			}
+			try (InputStream inputStream = multipartFile.getInputStream()) { // try with resource
+				Path filePath = uploadPath.resolve(fileName); // percorso file completo
+				// sovrascrive file se già presente con stesso nome
+				Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+
+
+			} catch (IOException ioe) {
+				throw new IOException("Could not save image file: " + fileName, ioe);
+			}
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
         
 
-        //6
-		return veicoloSalvato;
+        // restituisco il veicolo salvato
+		return veicolo;
 		
 	}
 
-	@Override
-	public Veicolo saveVeicolo(Veicolo veicolo) {
-		return _repo.save(veicolo);
-	}
 
 	@Override
 	public List<Veicolo> getAllVeicoli() {

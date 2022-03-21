@@ -39,19 +39,14 @@ public class VeicoloRestCtrl {
 	 * @param veicolo : dati veicolo
 	 * @param file    : immagine
 	 */
-	@PostMapping("/upload")
-	public ResponseEntity<Veicolo> uploadVeicolo(Veicolo veicolo, @RequestParam(name = "image", required = false) MultipartFile file) {// in alternativa usare @RequestPart
+	@PostMapping("/upload") // in alternativa usare @RequestPart
+	public ResponseEntity<Veicolo> uploadVeicolo(Veicolo veicolo,
+			@RequestParam(name = "image", required = false) MultipartFile file) {
 
-		Veicolo veicoloSalvato = new Veicolo(); // vuoto
+		// salvo veicolo con o senza immagine
+		_service.saveVeicolo(veicolo, file);
 
-		if (file == null || file.isEmpty()) {
-			veicoloSalvato = _service.saveVeicolo(veicolo);
-
-		} else {
-			veicoloSalvato = _service.saveVeicolo(veicolo, file);
-		}
-
-		return ResponseEntity.ok().body(veicoloSalvato);
+		return ResponseEntity.ok().body(veicolo);
 	}
 
 	/**
