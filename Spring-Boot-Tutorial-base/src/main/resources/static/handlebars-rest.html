@@ -65,7 +65,7 @@
 		// https://tutorialzine.com/2015/01/learn-handlebars-in-10-minutes
 
 		// event listener button onClick
-		document.getElementById(""), addEventListener("click", getAll);
+		document.getElementById("getAll").addEventListener("click", getAll);
 
 		async function getAll() {
 			try {
@@ -92,7 +92,7 @@
 			let template = Handlebars.compile(templateScript);
 			let htmlCompilato = template(context);
 
-			const output = document.getElementById(idOutput);
+			let output = document.getElementById(idOutput);
 			output.innerHTML = htmlCompilato;
 
 
