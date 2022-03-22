@@ -3,6 +3,7 @@ package com.generation.gestionale.entity;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class Ordine {
 	 * name: nome di questo campo sulla tabella <br>
 	 * nullable: se la foreign key può essere nulla
 	 */
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "cliente_id", nullable = false)
 	private Cliente cliente;
 
@@ -36,7 +37,7 @@ public class Ordine {
 	 * name: nome di questo campo sulla tabella <br>
 	 * nullable: se la foreign key può essere nulla
 	 */
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "impiegato_id", nullable = false)
 	private Impiegato impiegato;
 

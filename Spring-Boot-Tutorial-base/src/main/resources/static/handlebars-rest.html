@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Handlebars</title>
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<ul class="list-unstyled">
+					<li>Javascript Fetch Get All</li>
+					<li>
+						<ul>
+							<li>Mapping: <span class="bold">/api/studenti</span></b></li>
+							<li>Method: <span class="bold">get</span></li>
+							<li>
+								<input id="getAll" type="button" value="Esegui" class="btn btn-outline-primary btn-sm"></input>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- output -->
+		<div class="row" id="ouput-div"></div>
+	</div>
+
+	<!-- Bootstrap Bundle with Popper -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<!-- Handlebars -->
+	<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+
+	<script id="template-table" type="text/x-handlebars-template">
+		<!-- handlebar template -->
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Cognome</th>
+					<th scope="col">Email</th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each studenti}}
+				<tr>
+					<td>{{this.id}}</td>
+					<td>{{this.nome}}</td>
+					<td>{{this.cognome}}</td>
+					<td>{{this.email}}</td>
+				</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</script>
+	<script type="text/javascript">
+		// https://tutorialzine.com/2015/01/learn-handlebars-in-10-minutes
+
+		// event listener button onClick
+		document.getElementById(""), addEventListener("click", getAll);
+
+		async function getAll() {
+			try {
+				let listaStudenti = await fetch("/api/studenti")
+					.then(response => response.json());
+
+				// oggetto dati da usare nel template
+				const context = {
+					studenti: listaStudenti
+				};
+
+				handle("template-table", "ouput-div", context);	
+
+			} catch (error) {
+				console.log(error);
+			}
+		}
+
+		// funzione riutilizzabile
+		function handle(idTemplate, idOutput, context) {	
+			let templateScript = document.getElementById(idTemplate).innerHTML;
+
+			// handlebar
+			let template = Handlebars.compile(templateScript);
+			let htmlCompilato = template(context);
+
+			const output = document.getElementById(idOutput);
+			output.innerHTML = htmlCompilato;
+
+
+		}
+	</script>
+</body>
+
+</html>
