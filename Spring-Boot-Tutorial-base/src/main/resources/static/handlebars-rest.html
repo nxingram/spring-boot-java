@@ -51,12 +51,18 @@
 			</thead>
 			<tbody>
 				{{#each studenti}}
-				<tr>
-					<td>{{this.id}}</td>
-					<td>{{this.nome}}</td>
-					<td>{{this.cognome}}</td>
-					<td>{{this.email}}</td>
-				</tr>
+					<!-- custom helper 'pari'  -->
+					<!-- index parte da zero -->
+					{{#if (pari @index) }}
+						<tr>
+					{{else}}
+						<tr style="background-color:#bcbdc0">
+					{{/if}}
+							<td>{{this.id}}</td>
+							<td>{{this.nome}}</td>
+							<td>{{this.cognome}}</td>
+							<td>{{this.email}}</td>
+						</tr>
 				{{/each}}
 			</tbody>
 		</table>
@@ -74,7 +80,7 @@
 
 				// oggetto dati da usare nel template
 				const context = {
-					studenti: listaStudenti
+					'studenti': listaStudenti
 				};
 
 				handle("template-table", "ouput-div", context);	
@@ -85,7 +91,8 @@
 		}
 
 		// funzione riutilizzabile
-		function handle(idTemplate, idOutput, context) {	
+		function handle(idTemplate, idOutput, context) {			
+			
 			let templateScript = document.getElementById(idTemplate).innerHTML;
 
 			// handlebar
@@ -94,9 +101,15 @@
 
 			let output = document.getElementById(idOutput);
 			output.innerHTML = htmlCompilato;
-
-
 		}
+
+		// custom helper 'pari'
+		Handlebars.registerHelper('pari', function(indice){
+				let res = (indice%2 === 0)
+				return res;
+			});
+
+
 	</script>
 </body>
 
