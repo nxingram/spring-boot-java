@@ -22,14 +22,14 @@
 - [@RestController](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L23)
 - [@RequestMapping](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L24)
 - [@GetMapping](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L31)
-- [@PostMapping]
-- [@PutMapping]
-- [@DeleteMapping]
-- [@PathVariable]
-- [@RequestParam]
-- [@RequestBody]
-- [consumes/produces]
-- [ResponseEntity]
+- [@PostMapping](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L72-L74)
+- [@PutMapping](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L103-L106)
+- [@DeleteMapping](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L91)
+- [@PathVariable](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L37-L39)
+- [@RequestParam](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L55-L57)
+- [@RequestBody](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L72-L75)
+- [consumes/produces](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L72-L74)
+- [ResponseEntity](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L36-L39)
   - [new](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L47)
   - [static](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L96) 
 ### Javascript
@@ -40,6 +40,6 @@
   - [response status](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/async-await.html#L135-L138) 
 - [handlebars](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html)
   - [template](https://github.com/nxingram/spring-boot-java/blob/1832cf54a3ad992ec70c8bbec085f5b7f91005a1/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L50)
-  - [context](https://github.com/nxingram/spring-boot-java/blob/1832cf54a3ad992ec70c8bbec085f5b7f91005a1/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L93-L95)
+  - [context](https://github.com/nxingram/spring-boot-java/blob/1832cf54a3ad992ec70c8bbec085f5b7f91005a1/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L92-L95)
   - [compile](https://github.com/nxingram/spring-boot-java/blob/1832cf54a3ad992ec70c8bbec085f5b7f91005a1/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L115-L117) 
 - [DataTables](https://github.com/nxingram/spring-boot-java/blob/1832cf54a3ad992ec70c8bbec085f5b7f91005a1/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L100-L102)
