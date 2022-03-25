@@ -23,5 +23,10 @@
 ### Javascript
 - [fetch](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/js/rest.js)
   - [html](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/rest.html)
-- [async/await](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/async-await.html)
+- [async/await](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/async-await.html#L57-L63)
+  - [json](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/async-await.html#L63)
+  - [response status](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/async-await.html#L135-L138) 
 - [handlebars](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html)
+  - [template](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L41)
+  - [context](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L82)
+  - [compile](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L99-L100) 
