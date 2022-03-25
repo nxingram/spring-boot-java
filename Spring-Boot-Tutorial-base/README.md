@@ -15,7 +15,7 @@
 - [th:each](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/mvc.html#L28)
 - [th:text](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/mvc.html#L29)
 - [th:replace](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/mvc.html#L6)
-- [th:inline]()
+- [th:inline](https://github.com/nxingram/spring-boot-java/blob/0c1ac527db6c546037fe4f57d8a8b682db35e95d/Spring-Boot-Mvc-Http-Session/src/main/resources/templates/index.html#L24) (altro progetto)
 ## REST
 - @RestController
 ### Javascript
