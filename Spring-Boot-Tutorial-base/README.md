@@ -19,7 +19,19 @@
   - [text](https://github.com/nxingram/spring-boot-java/blob/0c1ac527db6c546037fe4f57d8a8b682db35e95d/Spring-Boot-Mvc-Http-Session/src/main/resources/templates/index.html#L24) 
   - [javascript](https://github.com/nxingram/spring-boot-java/blob/0c1ac527db6c546037fe4f57d8a8b682db35e95d/Spring-Boot-Mvc-Http-Session/src/main/resources/templates/index.html#L34)
 ## REST
-- @RestController
+- [@RestController](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L23)
+- [@RequestMapping](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L24)
+- [@GetMapping](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L31)
+- [@PostMapping]
+- [@PutMapping]
+- [@DeleteMapping]
+- [@PathVariable]
+- [@RequestParam]
+- [@RequestBody]
+- [consumes/produces]
+- [ResponseEntity]
+  - [new](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L47)
+  - [static](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L96) 
 ### Javascript
 - [fetch](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/js/rest.js)
   - [html](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/rest.html)
