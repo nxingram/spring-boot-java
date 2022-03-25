@@ -1,6 +1,44 @@
-# Contiene esempi
-- fetch() e then()
+## MVC
+- [@Controller](https://github.com/nxingram/spring-boot-java/blob/2f34ff529847c8ee6737da6fabe61e9a4eb04420/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/mvc/MvcCtrl.java#L14)
+- [@RequestMapping](https://github.com/nxingram/spring-boot-java/blob/2f34ff529847c8ee6737da6fabe61e9a4eb04420/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/mvc/MvcCtrl.java#L15)
+- [@Autowired](https://github.com/nxingram/spring-boot-java/blob/2f34ff529847c8ee6737da6fabe61e9a4eb04420/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/mvc/MvcCtrl.java#L24)
+- [@GetMapping](https://github.com/nxingram/spring-boot-java/blob/2f34ff529847c8ee6737da6fabe61e9a4eb04420/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/mvc/MvcCtrl.java#L28)
+- [@PathVariable](https://github.com/nxingram/spring-boot-java/blob/2f34ff529847c8ee6737da6fabe61e9a4eb04420/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/mvc/MvcCtrl.java#L42)
+- [Model](https://github.com/nxingram/spring-boot-java/blob/2f34ff529847c8ee6737da6fabe61e9a4eb04420/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/mvc/MvcCtrl.java#L29-L33)
+- [return html](https://github.com/nxingram/spring-boot-java/blob/2f34ff529847c8ee6737da6fabe61e9a4eb04420/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/mvc/MvcCtrl.java#L36)
+- [redirect](https://github.com/nxingram/spring-boot-java/blob/2f34ff529847c8ee6737da6fabe61e9a4eb04420/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/mvc/MvcCtrl.java#L65)
+### Thymeleaf
+- [th:action](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/studente-form.html#L13)
+- [th:object](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/studente-form.html#L13)
+- [th:value](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/studente-form.html#L16)
+- [th:href](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/mvc.html#L14)
+- [th:each](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/mvc.html#L28)
+- [th:text](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/mvc.html#L29)
+- [th:replace](https://github.com/nxingram/spring-boot-java/blob/668f04247168e1c4f1cdc1c1d2fb98621a80fed0/Spring-Boot-Tutorial-base/src/main/resources/templates/mvc.html#L6)
+- [th:inline](https://github.com/nxingram/spring-boot-java/blob/0c1ac527db6c546037fe4f57d8a8b682db35e95d/Spring-Boot-Mvc-Http-Session/src/main/resources/templates/index.html#L24) (altro progetto) 
+  - [text](https://github.com/nxingram/spring-boot-java/blob/0c1ac527db6c546037fe4f57d8a8b682db35e95d/Spring-Boot-Mvc-Http-Session/src/main/resources/templates/index.html#L24) 
+  - [javascript](https://github.com/nxingram/spring-boot-java/blob/0c1ac527db6c546037fe4f57d8a8b682db35e95d/Spring-Boot-Mvc-Http-Session/src/main/resources/templates/index.html#L34)
+## REST
+- [@RestController](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L23)
+- [@RequestMapping](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L24)
+- [@GetMapping](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L31)
+- [@PostMapping]
+- [@PutMapping]
+- [@DeleteMapping]
+- [@PathVariable]
+- [@RequestParam]
+- [@RequestBody]
+- [consumes/produces]
+- [ResponseEntity]
+  - [new](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L47)
+  - [static](https://github.com/nxingram/spring-boot-java/blob/6e10d34edb986e899b54ba73beca9b862f3ebd79/Spring-Boot-Tutorial-base/src/main/java/com/nx/springtutorial/rest/StudenteCtrl.java#L96) 
+### Javascript
+- [fetch](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/js/rest.js)
   - [html](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/rest.html)
-  - [javascript](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/js/rest.js)
-- [async/await](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/async-await.html)
+- [async/await](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/async-await.html#L57-L63)
+  - [json](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/async-await.html#L63)
+  - [response status](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/async-await.html#L135-L138) 
 - [handlebars](https://github.com/nxingram/spring-boot-java/blob/main/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html)
+  - [template](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L41)
+  - [context](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L82)
+  - [compile](https://github.com/nxingram/spring-boot-java/blob/a87798d9fb0f9422da1e10cc5df154b84bcf7e00/Spring-Boot-Tutorial-base/src/main/resources/static/handlebars-rest.html#L99-L100) 
