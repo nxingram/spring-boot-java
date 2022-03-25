@@ -7,6 +7,10 @@
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<!-- data tables -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+	
 </head>
 
 <body>
@@ -35,12 +39,18 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
+		
+	<!-- DataTables -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js" ></script>
+	
 	<!-- Handlebars -->
 	<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
 
+	<!-- Handlebars Template -->
 	<script id="template-table" type="text/x-handlebars-template">
 		<!-- handlebar template -->
-		<table class="table">
+		<table class="table" id="datatable">
 			<thead>
 				<tr>
 					<th scope="col">Id</th>
@@ -51,8 +61,9 @@
 			</thead>
 			<tbody>
 				{{#each studenti}}
-					<!-- custom helper 'pari'  -->
-					<!-- index parte da zero -->
+					{{!-- commento --}}
+					{{!-- custom helper 'pari'  --}}
+					{{!-- index parte da zero --}}
 					{{#if (pari @index) }}
 						<tr>
 					{{else}}
@@ -83,7 +94,13 @@
 					'studenti': listaStudenti
 				};
 
+				// Handelbars
 				handle("template-table", "ouput-div", context);	
+				
+				// DataTables
+				let dt =   document.querySelector('#datatable');
+				let table = new DataTable(dt, {}); // {} => options
+				
 
 			} catch (error) {
 				console.log(error);
@@ -101,6 +118,7 @@
 
 			let output = document.getElementById(idOutput);
 			output.innerHTML = htmlCompilato;
+			
 		}
 
 		// custom helper 'pari'
