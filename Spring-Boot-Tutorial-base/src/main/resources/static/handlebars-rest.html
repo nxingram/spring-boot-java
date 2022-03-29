@@ -95,16 +95,19 @@
 				};
 
 				// Handelbars
-				handle("template-table", "ouput-div", context);	
-				
-				// DataTables
-				let dt =   document.querySelector('#datatable');
-				let table = new DataTable(dt, {}); // {} => options
-				
+				handle("template-table", "ouput-div", context);					
 
 			} catch (error) {
 				console.log(error);
 			}
+			
+			
+			// DataTables: 
+			// aggiunge paginazione, filtro e ricerca ad una tabella
+			let dt =   document.querySelector('#datatable');
+			let table = new DataTable(dt, {}); // {} => options
+			
+			
 		}
 
 		// funzione riutilizzabile
