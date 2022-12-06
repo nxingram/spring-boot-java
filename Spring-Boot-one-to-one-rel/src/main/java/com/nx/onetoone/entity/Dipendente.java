@@ -17,6 +17,7 @@ public class Dipendente {
 	private String ufficio;
 	
 	@OneToOne
+	//@OneToOne(cascade = CascadeType.ALL) // CRUD cascade: persiste utente se nuovo, aggiorna e cancella
 	@JoinColumn(name = "utente_id")
 //	@JoinColumn(name = "utente_id", referencedColumnName = "utenteId") // facoltativo specificare la chiave primaria di utente
 	private Utente utente;
