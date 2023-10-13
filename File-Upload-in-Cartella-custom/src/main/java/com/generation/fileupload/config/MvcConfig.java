@@ -10,7 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
  
- 
+ //N.B. NON SERVE se si usa la cartella static di spting per salvare le immagini
+    
 	// rende visibile dall'esterno la cartella delle fotografie, se il percorso è corretto
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
