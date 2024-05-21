@@ -1,5 +1,6 @@
 package com.generation.fileupload.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -9,6 +10,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -37,7 +39,7 @@ public class VeicoloService implements IVeicoloService {
 		}
 		 
 		// c'è 1 immagine da salvare oltre ai dati del veicolo
-		// nome del file o immagine, rimuovo spazi
+		// nome del file o immagine: **rimuovo spazi**
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename().strip().replace(" ", "-"));
 		
 		// setto nome del file prima di salvare il veicolo
@@ -46,14 +48,14 @@ public class VeicoloService implements IVeicoloService {
 		_repo.save(veicolo);
 
 		// genero il percorso della cartella dove salvare l'immagine
-		String uploadDir = CustomProperties.basepath + "/" + veicolo.getId();
+		String uploadDir = CustomProperties.IMG_SAVE_PATH + "/" + veicolo.getId();
 		 
         try {
 			// converte percorso stringa in un path
 			Path uploadPath = Paths.get(uploadDir);
 
 			if (!Files.exists(uploadPath)) {
-				// crea cartella, se non esiste, dove salvare l'immagine
+				// crea cartella dove salvare l'immagine se non esiste
 				Files.createDirectories(uploadPath); // throws IOException
 			}
 			try (InputStream inputStream = multipartFile.getInputStream()) { // try with resource
@@ -93,9 +95,20 @@ public class VeicoloService implements IVeicoloService {
 
 	@Override
 	public void deleteVeicolo(Veicolo trovato) {
+		try {
+			// cancello immagini e cartella
 
-		// cancello immagini e cartella
-		FileUploadUtil.deleteDir(trovato);	
+			String dir = CustomProperties.IMG_SAVE_PATH + "/" + trovato.getId();
+			
+			if (Files.exists(Paths.get(dir))) {
+				// N.B. aggiungere nel pom.xml la dipendenza "commons-io"
+				// <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+				FileUtils.deleteDirectory(new File(dir));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		
 		// cancello veicolo
 		_repo.delete(trovato);		

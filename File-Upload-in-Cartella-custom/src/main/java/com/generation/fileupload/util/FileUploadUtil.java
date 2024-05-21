@@ -39,7 +39,7 @@ public class FileUploadUtil {
 	public static void deleteDir(Veicolo trovato) {
 		try {
 
-			String dir = CustomProperties.basepath + "/" + trovato.getId();
+			String dir = CustomProperties.IMG_URL_PATH + "/" + trovato.getId();
 			
 			if (Files.exists(Paths.get(dir))) {
 				// N.B. aggiungere nel pom.xml la dipendenza "commons-io"

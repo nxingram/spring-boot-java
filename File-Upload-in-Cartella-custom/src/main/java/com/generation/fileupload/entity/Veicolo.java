@@ -30,11 +30,11 @@ public class Veicolo {
 
 		if (fileName == null || fileName.equals("")) {
         	//1
-        	return "/" + CustomProperties.defaultImg;        	
+        	return "/" + CustomProperties.DEFAULT_IMG_PATH;        	
         }
 
         //2
-        return "/" + CustomProperties.basepath + "/" + id + "/" + fileName;
+        return "/" + CustomProperties.IMG_URL_PATH + "/" + id + "/" + fileName;
     }
 	
 	// getters e setters

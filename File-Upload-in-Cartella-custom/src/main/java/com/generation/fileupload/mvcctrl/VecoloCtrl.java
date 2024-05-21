@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.generation.fileupload.entity.Veicolo;
@@ -31,8 +32,8 @@ public class VecoloCtrl {
 		return "veicolo-form";
 	}
 	
-	@PostMapping("/save") // in alternativa usare @RequestPart
-	public String salvaVeicolo(Veicolo veicolo, @RequestParam(name = "image", required = false) MultipartFile multipartFile, Model model) {
+	@PostMapping("/save") // in alternativa usare "@RequestParam"
+	public String salvaVeicolo(Veicolo veicolo, @RequestPart(name = "image", required = false) MultipartFile multipartFile, Model model) {
 	
 		// salvo veicolo con o senza immagine
 		_serv.saveVeicolo(veicolo, multipartFile);			
